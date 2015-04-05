@@ -5,13 +5,13 @@ PREFIX = '/video/shortoftheweek'
 PER_PAGE = 10
 
 SOTW_ICON = 'sotw.png'
-ICON = 'default.png'
-ART  = 'background.jpg'
+ICON      = 'default.png'
+ART       = 'background.jpg'
 
-SOTW_BASE_URL = 'https://www.shortoftheweek.com'
-SOTW_DATA_URL = '%s/api/v1/video/?category={0}&limit={1}&page={2}' % SOTW_BASE_URL
+SOTW_BASE_URL   = 'https://www.shortoftheweek.com'
+SOTW_DATA_URL   = '%s/api/v1/video/?category={0}&limit={1}&page={2}' % SOTW_BASE_URL
 SOTW_SEARCH_URL = '%s/api/v1/search/?q={0}&limit=10&page={1}' % SOTW_BASE_URL
-SOTW_CHANNELS = '%s/channels/' % SOTW_BASE_URL
+SOTW_CHANNELS   = '%s/channels/' % SOTW_BASE_URL
 
 HTTP_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0',
@@ -35,8 +35,6 @@ def Start():
   DirectoryObject.thumb = R(ICON)
   DirectoryObject.art = R(ART)
 
-  #Locale.DefaultLocale = Prefs["language"].split("/")[1]
-
   HTTP.CacheTime = CACHE_1HOUR
 
 ################################################################################
@@ -46,63 +44,63 @@ def sotw_main_menu():
   oc = ObjectContainer()
 
   oc.add(DirectoryObject(
-    key     = Callback(
+    key = Callback(
       sotw_get_shorts,
       url = "HOME",
       title = L('Shorts of the Week'),
       total = 0
     ),
-    title   = L('Shorts of the Week'),
+    title = L('Shorts of the Week'),
     summary = L('most recent shorts of the week')
   ))
 
   oc.add(DirectoryObject(
-    key     = Callback(
+    key = Callback(
       sotw_get_sections,
       title = L('Genders'),
       position = 0
     ),
-    title   = L('Genders'),
+    title = L('Genders'),
     summary = L('select a short by gender')
   ))
 
   oc.add(DirectoryObject(
-    key     = Callback(
+    key = Callback(
       sotw_get_sections,
       title = L('Topics'),
       position = 1
     ),
-    title   = L('Topics'),
+    title = L('Topics'),
     summary = L('select a short by topic')
   ))
 
   oc.add(DirectoryObject(
-    key     = Callback(
+    key = Callback(
       sotw_get_sections,
       title = L('Styles'),
       position = 2
     ),
-    title   = L('Styles'),
+    title = L('Styles'),
     summary = L('select a short by style')
   ))
 
   oc.add(DirectoryObject(
-    key     = Callback(
+    key = Callback(
       sotw_get_sections,
       title = L('Collections'),
       position = 3
     ),
-    title   = L('Collections'),
+    title = L('Collections'),
     summary = L('review the collections of shorts')
   ))
 
   oc.add(DirectoryObject(
-    key     = Callback(
+    key = Callback(
       sotw_get_sections,
       title = L('Countries'),
       position = 4
     ),
-    title   = L('Countries'),
+    title = L('Countries'),
     summary = L('select a short by country')
   ))
 

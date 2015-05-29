@@ -175,12 +175,13 @@ def sotw_get_shorts(url, title, total, page = 1):
   )
 
   for short in data['data']:
-    oc.add(VideoClipObject(
-      url = short['play_link'],
-      title = short['post_title'],
-      summary = short['post_excerpt'],
-      thumb = Resource.ContentsOfURLWithFallback('https:' + short['background_image'])
-    ))
+    if URLService.ServiceIdentifierForURL(short['play_link']):
+      oc.add(VideoClipObject(
+        url = short['play_link'],
+        title = short['post_title'],
+        summary = short['post_excerpt'],
+        thumb = Resource.ContentsOfURLWithFallback('https:' + short['background_image'])
+      ))
 
   if total > page*PER_PAGE or (total == 0 and data["count"] == 10):
     oc.add(NextPageObject(

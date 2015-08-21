@@ -1,6 +1,6 @@
 # Site settings
 project: shortoftheweek
-baseurl: /Short-of-the-Week
+baseurl: /Short-of-the-Week.bundle
 email: manferwebs@gmail.com
 github_username: manfer
 bootstrap_theme: slate

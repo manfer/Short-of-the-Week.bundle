@@ -1,0 +1,12 @@
+# Site settings
+project: shortoftheweek
+baseurl: /Short-of-the-Week
+email: manferwebs@gmail.com
+github_username: manfer
+bootstrap_theme: slate
+
+# Build settings
+markdown: redcarpet
+redcarpet:
+  extensions: [with_toc_data]
+
